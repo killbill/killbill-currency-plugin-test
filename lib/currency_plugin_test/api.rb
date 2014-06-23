@@ -6,20 +6,6 @@ module Killbill
   module CurrencyPlugin
     class TestPlugin < Killbill::Plugin::Currency
 
-      def initialize()
-        @raise_exception = false
-        super()
-      end
-
-
-      def start_plugin
-        super
-      end
-
-      # return DB connections to the Pool if required
-      def after_request
-      end
-
       def get_base_currencies(options = {})
         ['USD']
       end
@@ -33,11 +19,10 @@ module Killbill
       end
 
       def get_current_rates(base_currency, options = {})
-
-        rate = Killbill::Plugin::Model::Rate.new
-        rate.base_currency = base_currency
-        rate.currency = 'BRL'
-        rate.value = 12.3
+        rate                 = Killbill::Plugin::Model::Rate.new
+        rate.base_currency   = base_currency
+        rate.currency        = 'BRL'
+        rate.value           = 12.3
         rate.conversion_date = Time.now.utc
         [rate]
       end
@@ -45,7 +30,6 @@ module Killbill
       def get_rates(base_currency, conversion_date, options = {})
         get_current_rates(base_currency, options)
       end
-
     end
   end
 end
