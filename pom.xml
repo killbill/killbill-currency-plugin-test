@@ -27,7 +27,7 @@
     <groupId>org.kill-bill.ruby</groupId>
     <artifactId>killbill-currency-plugin-test</artifactId>
     <packaging>pom</packaging>
-    <version>4.0.0</version>
+    <version>4.0.1</version>
     <name>killbill-currency-plugin-test</name>
     <description></description>
     <scm>
